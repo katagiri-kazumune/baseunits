@@ -99,12 +99,7 @@ publishing {
 
 	publications {
 		gpr(MavenPublication) {
-			groupId project.group
-			artifactId project.artifactId
-			version project.version
 			from components.java
-			artifact sourcesJar
-			artifact javadocJar
 		}
 	}
 }
