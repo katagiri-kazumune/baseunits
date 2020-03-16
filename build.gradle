@@ -85,12 +85,11 @@ wrapper {
 }
 
 // ======== deploy ========
-apply plugin: 'maven-publish'
 publishing {
 	repositories {
 		maven {
-			name = "github"
-			url = System.getenv("PUBLISH_REPOSITORY")
+			name = "GitHubPackages"
+			url = uri("https://maven.pkg.github.com/katagiri-kazumune/baseunits")
 			credentials {
 				username = System.getenv("GITHUB_USER")
 				password = System.getenv("GITHUB_TOKEN")
@@ -99,7 +98,7 @@ publishing {
 	}
 
 	publications {
-		maven(MavenPublication) {
+		gpr(MavenPublication) {
 			groupId project.group
 			artifactId project.artifactId
 			version project.version
